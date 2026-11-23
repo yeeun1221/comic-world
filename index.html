@@ -13,7 +13,7 @@
 tailwind.config={theme:{extend:{colors:{bg:'#FFFAF8',pink:'#F36B9B',soft:'#FBE0EB',burg:'#461D30',ink:'#241B21'},fontFamily:{sans:['Pretendard','sans-serif'],dot:['DotGothic16','monospace'],title:['"Black Han Sans"','Pretendard','sans-serif']}}}}
 </script>
 <style>
-html{scroll-behavior:smooth}body{background:#FFFAF8;color:#241B21}
+html{scroll-behavior:smooth}body{background:#FFFAF8;color:#241B21;font-family:'Pretendard',sans-serif}
 .pixel{image-rendering:pixelated}
 .px-btn{position:relative;transition:transform .15s, box-shadow .15s}
 .px-btn{box-shadow:4px 4px 0 #461D30}
@@ -101,7 +101,7 @@ const PixelButton=({children,variant="primary",onClick,href,className=""})=>{
   return <button type="button" onClick={onClick} className={cls}>{children}</button>;
 };
 const Spark=({className,delay=0})=>(<svg viewBox="0 0 7 7" className={`pixel tw absolute ${className}`} style={{animationDelay:delay+"s"}} fill="#F36B9B"><path d="M3 0h1v2h1v1h2v1H5v1H4v2H3V5H2V4H0V3h2V2h1z"/></svg>);
-const Label=({children})=>(<p className="font-dot text-pink tracking-[0.3em] text-sm mb-4">{children}</p>);
+const Label=({children})=>(<p className="font-dot text-pink tracking-[0.3em] text-xs md:text-sm mb-5">{children}</p>);
 const Reveal=({children,className=""})=>{
   const r=useRef();const [on,setOn]=useState(false);
   useEffect(()=>{const o=new IntersectionObserver(([e])=>e.isIntersecting&&setOn(true),{threshold:.15});o.observe(r.current);return()=>o.disconnect()},[]);
@@ -114,7 +114,7 @@ const Nav=({page,go})=>{
   const [open,setOpen]=useState(false);
   return(<header className="fixed top-0 inset-x-0 z-40 bg-bg/90 backdrop-blur border-b border-pink/40">
     <div className="max-w-7xl mx-auto px-5 md:px-10 h-[76px] flex items-center justify-between">
-      <button onClick={()=>go("home")} className="font-dot text-burg text-base md:text-lg truncate">내가 오타쿠 행사에 갈 수 있을리 없잖아!!</button>
+      <button onClick={()=>go("home")} className="font-sans font-normal text-burg text-base md:text-lg truncate">내가 오타쿠 행사에 갈 수 있을리 없잖아!!</button>
       <nav className="hidden md:flex gap-10 items-center">
         {SITE.nav.map(n=>n.href?(<a key={n.id} href={n.href} target="_blank" rel="noopener noreferrer" className="cursor-pointer text-base font-medium pb-1 border-b-2 transition text-ink border-transparent hover:text-pink">{n.label}</a>):(<button key={n.id} onClick={()=>go(n.id)} className={`text-base font-medium pb-1 border-b-2 transition ${page===n.id?"text-pink border-pink":"text-ink border-transparent hover:text-pink"}`}>{n.label}</button>))}
       </nav>
@@ -179,7 +179,7 @@ const Game=()=>(
           <SecNo n="01" t="GAME STORY"/>
           <h1 className="font-sans font-extrabold tracking-tight leading-[1.15] text-[2.5rem] md:text-6xl lg:text-7xl">좋아하는 작가님의<br/>굿즈를 사려면,<br/><span className="text-pink">코믹월드</span>에<br className="md:hidden"/> 가야 한다고?!</h1>
           <p className="mt-8 text-lg md:text-xl leading-relaxed text-ink/75">한 번도 가본 적 없는 오타쿠 행사.<br/>하지만 이번만큼은 <b className="text-ink">포기할 수 없습니다.</b></p>
-          <p className="mt-10 font-dot text-burg/60 text-xs md:text-sm">{FULL_TITLE}</p>
+          <p className="mt-10 font-sans font-normal text-burg/60 text-xs md:text-sm">{FULL_TITLE}</p>
         </Reveal>
         <Reveal className="relative flex justify-center">
           <Spark className="w-5 left-4 top-6"/><Spark className="w-4 right-6 bottom-16" delay={.8}/>
@@ -328,7 +328,7 @@ const Box=({t,children})=>(<div className="border-2 border-burg/15 bg-bg p-6 h-f
 const Project=()=>(
   <div className="pt-16 kr-text">
     <div className="max-w-6xl mx-auto px-5 md:px-10 pt-20">
-      <div className="flex gap-3 font-dot text-xs md:text-sm text-burg/60 flex-wrap">
+      <div className="flex gap-3 font-sans font-normal text-xs md:text-sm text-burg/60 flex-wrap">
         {["01 가설 설정","02 가설 검증","03 인사이트","04 해결 방안","05 결과물"].map((s,i)=>(<React.Fragment key={s}><span className={i===0?"text-pink":""}>{s}</span>{i<4&&<span>→</span>}</React.Fragment>))}
       </div>
       <p className="mt-6 text-sm text-ink/55">설문조사: 「오프라인 서브컬처에 대한 인식 및 참여 경험 조사」 (온라인 설문, 응답자 93명). 응답자는 설문에 자발적으로 참여한 사람들로, 사회 전체를 대표하는 표본은 아닙니다.</p>
