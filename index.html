@@ -53,9 +53,9 @@ const SITE={
   bubble:"…진짜 가야 하나?",
   nav:[{id:"home",label:"게임 시작",href:GAME_URL},{id:"game",label:"게임 소개"},{id:"project",label:"프로젝트 소개"},{id:"guide",label:"오프라인 행사 가이드"}],
 };
-const STORY=["주인공 김아무개는 좋아하는 작품과 작가에 열정적인 오타쿠입니다.","어느 날 좋아하는 작가의 한정 굿즈가 코믹월드에서만 판매된다는 사실을 알게 됩니다.","행사에 가는 것이 두렵지만, 결국 굿즈를 얻기 위해 행사장에 방문하게 됩니다."];
+const STORY=["주인공 김아무개는 좋아하는 작품과 작가에 열정적인 오타쿠입니다.","어느 날 좋아하는 작가의 한정 굿즈가 코믹세상에서만 판매된다는 사실을 알게 됩니다.","행사에 가는 것이 두렵지만, 결국 굿즈를 얻기 위해 행사장에 방문하게 됩니다."];
 const GAMEPLAY=[
-  {no:"01",title:"코믹월드 행사장 탐험",desc:"부스 사이를 걸으며 행사장의 구조와 분위기를 익힙니다."},
+  {no:"01",title:"코믹세상 행사장 탐험",desc:"부스 사이를 걸으며 행사장의 구조와 분위기를 익힙니다."},
   {no:"02",title:"좋아하는 작가의 굿즈 구매",desc:"한정 굿즈를 손에 넣기 위한 김아무개의 첫 도전."},
   {no:"03",title:"심부름 & 대리구매 퀘스트",desc:"NPC의 부탁을 들어주며 행사장 곳곳을 누빕니다."},
   {no:"04",title:"메이드 카페 체험",desc:"처음이라 어색해도 괜찮아요. 천천히 경험해 봅니다."},
@@ -177,7 +177,7 @@ const Game=()=>(
       <div className="max-w-7xl mx-auto px-5 md:px-10 py-20 md:py-28 grid md:grid-cols-[7fr_5fr] gap-10 items-center relative">
         <Reveal>
           <SecNo n="01" t="GAME STORY"/>
-          <h1 className="font-sans font-extrabold tracking-tight leading-[1.15] text-[2.5rem] md:text-6xl lg:text-7xl">좋아하는 작가님의<br/>굿즈를 사려면,<br/><span className="text-pink">코믹월드</span>에<br className="md:hidden"/> 가야 한다고?!</h1>
+          <h1 className="font-sans font-extrabold tracking-tight leading-[1.15] text-[2.5rem] md:text-6xl lg:text-7xl">좋아하는 작가님의<br/>굿즈를 사려면,<br/><span className="text-pink">코믹세상</span>에<br className="md:hidden"/> 가야 한다고?!</h1>
           <p className="mt-8 text-lg md:text-xl leading-relaxed text-ink/75">한 번도 가본 적 없는 오타쿠 행사.<br/>하지만 이번만큼은 <b className="text-ink">포기할 수 없습니다.</b></p>
           <p className="mt-10 font-sans font-normal text-burg/60 text-xs md:text-sm">{FULL_TITLE}</p>
         </Reveal>
@@ -196,7 +196,7 @@ const Game=()=>(
           <h2 className="font-sans font-extrabold tracking-tight text-4xl md:text-6xl leading-tight">좋아하는 마음이<br/><span className="text-pink">용기</span>가 되는 순간</h2></Reveal>
         <div className="mt-16 grid md:grid-cols-3 gap-10 md:gap-8">
           {[
-            {img:CH.book,tag:"01 · 소식",t:"평소 좋아하는 작가님의 굿즈를 모으던 주인공. 어느 날, 작가님의 신작 굿즈가 코믹월드에서 한정 판매된다는 소식을 접합니다."},
+            {img:CH.book,tag:"01 · 소식",t:"평소 좋아하는 작가님의 굿즈를 모으던 주인공. 어느 날, 작가님의 신작 굿즈가 코믹세상에서 한정 판매된다는 소식을 접합니다."},
             {img:CH.f_gloom,tag:"02 · 망설임",t:"오프라인 행사에 가본 적 없어 망설이지만,"},
             {img:CH.run,tag:"03 · 출발",t:"결국 직접 행사장에 가기로 결심합니다."},
           ].map((s,i)=>(<Reveal key={i}><div className="h-full flex flex-col">
@@ -214,7 +214,7 @@ const Game=()=>(
     {/* 03 GAME EXPERIENCE */}
     <section className="max-w-7xl mx-auto px-5 md:px-10 py-24 md:py-32">
       <Reveal><SecNo n="03" t="GAME EXPERIENCE"/>
-        <h2 className="font-sans font-extrabold tracking-tight text-4xl md:text-6xl leading-tight"><span className="text-pink">코믹월드</span>에서는<br/>어떤 일이 기다리고 있을까요?</h2></Reveal>
+        <h2 className="font-sans font-extrabold tracking-tight text-4xl md:text-6xl leading-tight"><span className="text-pink">코믹세상</span>에서는<br/>어떤 일이 기다리고 있을까요?</h2></Reveal>
       <div className="mt-20 space-y-24">
         {EXP.filter(e=>e.big).map((e,i)=>(<Reveal key={e.no}><div className={`grid md:grid-cols-[7fr_5fr] gap-10 items-center ${i%2?"md:[&>*:first-child]:order-2":""}`}>
           <div className="grid grid-cols-2 gap-4">
@@ -246,7 +246,7 @@ const Game=()=>(
         <img src={CH.cheer} alt="신난 주인공" className="hidden md:block w-full max-w-[200px] bob"/>
         <Reveal className="text-center">
           <p className="font-dot tracking-[0.3em] text-xs md:text-sm mb-5 text-white/80">SECTION 04 — START GAME</p>
-          <h2 className="font-sans font-extrabold tracking-tight text-4xl md:text-6xl leading-tight">이제, 직접<br/><span className="text-burg">코믹월드</span>에 가볼 차례!</h2>
+          <h2 className="font-sans font-extrabold tracking-tight text-4xl md:text-6xl leading-tight">이제, 직접<br/><span className="text-burg">코믹세상</span>에 가볼 차례!</h2>
           <p className="mt-6 text-lg md:text-xl text-white/90">좋아하는 작가님의 굿즈를 찾아 떠나는 첫 오타쿠 행사.</p>
           <a href={GAME_URL} target="_blank" rel="noopener noreferrer" className="px-btn inline-block mt-10 bg-white text-burg border-[3px] border-burg font-bold text-xl px-10 py-4">▶ 게임 시작하기</a>
         </Reveal>
